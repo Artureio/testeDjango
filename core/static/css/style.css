@@ -1,0 +1,124 @@
+
+*{
+    font-family: 'Fira Sans', sans-serif;
+}
+
+#corpo-index{
+    background-image: url(/static/images/fundo.png)  ;
+    margin: 0;
+    padding:0 ;
+}
+#home{
+    box-shadow: 0 0 10px rgba(0,0,0,.07), 4px 4px 10px rgba(0,0,0,.3);
+    border: 0px 1px 1px 1px solid rgba(72, 72, 72, 0.3);
+}
+
+header{
+    background: #129612;
+    color: white;
+    height: 60px;
+}
+.login-botao{
+        transition:ease-in-out .3s;
+        float: left;  
+      }
+    
+
+.login-botao:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,1); 
+}
+    header img{
+    margin-top: -5px;
+}
+    header img{
+    margin-top: -5px;
+}
+
+
+
+#login-fundo{
+    background: url(/static/images/fundo.png) ,
+                #107c10
+                ;
+    background-attachment: fixed;
+    position: absolute;
+}
+.caixa{
+    padding: 60px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#login-logo{
+    
+}
+#conteudo{
+    margin: 100px 0 0 0;
+}
+.login-form {
+    width: 340px;
+    
+  	font-size: 15px;
+}
+.login-form form {
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.btn {        
+    font-size: 15px;
+    font-weight: bold;
+}
+.separador h1{
+    margin-top: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+    text-anchor: middle;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+/*Cards*/
+#cards p, #cards h1{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.card{
+    margin-bottom: 1rem;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+/*Foooter*/
+footer{
+    background: rgba(0, 0, 0, 0.5);
+}
+.programadores{
+    padding: 10px;
+}
+.programadores:hover{
+    border-radius: 20px;
+    margin: 0;
+    padding: 10px;
+    transition: all 0.5s ease-in-out;
+    background: rgba(0, 0, 0, 1)
+}
+    
+.cadastro{
+    background-color: white;
+    padding: 5px 30px 30px 30px;
+}
+
+.contato-form {
+    width: 600px;
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.contato-form h2 {
+    margin: 0 0 15px;
+}
