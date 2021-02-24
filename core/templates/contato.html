@@ -1,0 +1,77 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<!doctype html>
+<html lang="pt-br">
+<!-- Cabeçalho -->
+<head>
+    {% bootstrap_css %}
+    <title>Awarded</title>
+
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Estilo customizado -->
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+</head>
+<!-- Corpo do HTML -->
+
+<body id="login-fundo">
+<div class="container-fluid position-fixed  ">
+    <div class="  d-flex justify-content-center  " id="conteudo">
+        <!--Logo + Slogan lado esquerdo -->
+        <div class=" d-none d-lg-block mr-5 text-light  text-center ">
+            <img src={% static "images/logo.png" %} width="200" id="login-logo">
+            <h1 class="display-1  font-weight-bold ">Awarded!</h1>
+            <p class=" ">O mundo gamer está aqui</p>
+        </div>
+        <!-- Lado direito do HTML -->
+        <div>
+            <!--Mensagem confirmação de envio ou erro-->
+            {% bootstrap_messages %}
+
+            <div class="contato-form"><!--Formulário Contato-->
+                <form action="{% url 'contato' %}" method="post" autocomplete="off">
+                    <h2 class="text-center">Contato</h2>
+                    <!--token de integridade de formulário-->
+                    {% csrf_token %}
+                    <!--Classe bootstrap para formatar form-->
+                    {% bootstrap_form form%}
+                    {%buttons %}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block font-weight-bold">Enviar mensagem</button>
+                    </div>
+                    {% endbuttons %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer fixed-bottom d-none  d-sm-block">
+    <div class="container   text-white">
+        <div class="row d-flex justify-content-around ">
+            <div class="footer-widget programadores">
+                <h5>Artur Henrique</h5>
+                <div class="footer-widget-content">
+                    <div class="footer-social ">
+                        <ul class="nav justify-content-around">
+                            <li><a href="#"><i class="fab fa-facebook text-white "></i></a></li>
+                            <li><a href="#"><i class="fab fa-steam text-white "></i></a></li>
+                            <li><a href="#"><i class="fab fa-github text-white "></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Optional JavaScript -->
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
+
+
