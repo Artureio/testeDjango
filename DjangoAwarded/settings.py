@@ -30,7 +30,7 @@ SECRET_KEY = 'y_*(4n1h7@84numbmt0+ytcfg=uxv7fo0a(qr%r9bl$qxx^km&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://awarded-artur.herokuapp.com/']
 
 
 # Application definition
