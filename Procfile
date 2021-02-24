@@ -1,0 +1,1 @@
+web: gunicord Django-Awarded.wsgi --log-file -
