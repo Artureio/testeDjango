@@ -1,1 +1,1 @@
-web: gunicorn Django-Awarded.wsgi --log-file -
+web: gunicorn DjangoAwarded.wsgi --log-file -
