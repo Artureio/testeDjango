@@ -1,18 +1,39 @@
 from django.db.transaction import commit
-from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.template import loader
+
 from .forms import ContatoForm, NoticiaModelForm
 from .models import Noticia
 
+
 def index(request):
+    if str(request.user) != 'AnonymousUser':
+        logado = f'Bem vindo {request.user}'
+    else:
+        logado = f'Usuário não logado.'
     context = {
-        'noticias': Noticia.objects.all()
+        'noticias': Noticia.objects.all(),
+        'logado': logado,
     }
     return render(request, 'index.html', context)
 
 
-def login(request):
-    return render(request, 'login.html')
+def vernoticia(request, pk):
+    if str(request.user) != 'AnonymousUser':
+        logado = f'Bem vindo {request.user}'
+    else:
+        logado = f'Usuário não logado.'
+
+    #seleciona noticia pelo id
+    noticiapk = get_object_or_404(Noticia, id=pk)
+
+    context = {
+        'noticia': noticiapk,
+        'logado':logado
+    }
+    return render(request, 'vernoticia.html', context)
 
 
 def contato(request):
@@ -53,3 +74,12 @@ def noticia(request):
         return render(request, 'noticia.html', context)
     else:
         return redirect(to='../painel/')
+
+def error404(request, exception):
+    template = loader.get_template('404.html')
+    return HttpResponse(content=template.render(), content_type='text/html; charset=utf8', status=404)
+
+
+def error500(request):
+    template = loader.get_template('500.html')
+    return HttpResponse(content=template.render(), content_type='text/html; charset=utf8', status=500)

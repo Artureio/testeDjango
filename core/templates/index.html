@@ -22,6 +22,8 @@
             <a href="" class="navbar-brand m-0 p-0">
                 <img src={% static "images/logo.png" %} height="50">
             </a>
+            <span class="mr-auto ml-3" > {{logado}}</span>
+
             <div>
                 <a name="" id="" class="btn btn-outline-light login-botao ml-1" href='contato'
                    role="button">Contato</a>
@@ -79,10 +81,9 @@
                     <div class="card-body">
                             <h5 class="card-title ">{{ noticia.titulo|truncatechars:40 }} </h5>
 
-
                         <p class="card-text">{{noticia.corpo|truncatechars:60}}</p>
                         <div class="row align-items-center justify-content-between">
-                        <a href="#" class="btn btn-sm btn-success">Leia mais</a>
+                        <a href="{% url 'vernoticia' noticia.pk %}" class="btn btn-sm btn-success">Leia mais</a>
                         <span class="badge badge-info">{{noticia.criado|date:'d-m-Y'}}</span>
                         </div>
                     </div>

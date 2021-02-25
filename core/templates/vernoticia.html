@@ -1,0 +1,75 @@
+{% load static %}
+{% load bootstrap4 %}
+
+<!doctype html>
+<html lang="pt-br">
+<!-- Cabeçalho -->
+<head>
+    <title>{{noticia.titulo}}</title>
+
+    {% bootstrap_css %}
+
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Estilo customizado -->
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+</head>
+<!-- Corpo do HTML -->
+<body id="corpo-index">
+<header class="border-bottom">
+    <nav class="navbar navbar-dark  ">
+        <div class="container">
+            <a href="{% url 'index'  %}" class="navbar-brand m-0 p-0">
+                <img src={% static "images/logo.png" %} height="50">
+            </a>
+            <span class="mr-auto ml-3"> {{logado}}</span>
+
+            <div>
+                <a name="" id="" class="btn btn-outline-light login-botao ml-1" href='../contato'
+                   role="button">Contato</a>
+                <a name="" id="" class="btn btn-outline-light login-botao ml-1" href='../noticia'
+                   role="button">Nova Notícia</a>
+                <!--<a name="" id="" class="btn btn-light ml-2 login-botao" href="cadastro.php" role="button">Sign Up</a>-->
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container-fluid">
+    <div class="container bg-white pr-4 pl-4 pt-4" id="home">
+        <img src="{{noticia.thumbnail.url}}" width="640px" class=" img-fluid mx-auto d-block rounded"
+             alt="{{noticia.titulo}}">
+        <h1>{{noticia.titulo}}</h1>
+        <p>{{noticia.corpo}}</p>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer fixed-bottom d-none  d-sm-block">
+    <div class="container   text-white">
+        <div class="row d-flex justify-content-around ">
+
+            <div class="footer-widget programadores">
+                <h5>Artur Henrique</h5>
+                <div class="footer-widget-content">
+                    <div class="footer-social ">
+                        <ul class="nav justify-content-around">
+                            <li><a href="#"><i class="fab fa-facebook text-white "></i></a></li>
+                            <li><a href="#"><i class="fab fa-steam text-white "></i></a></li>
+                            <li><a href="#"><i class="fab fa-github text-white "></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
+

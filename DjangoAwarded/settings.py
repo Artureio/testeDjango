@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'y_*(4n1h7@84numbmt0+ytcfg=uxv7fo0a(qr%r9bl$qxx^km&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['awarded-artur.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'DjangoAwarded.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -91,7 +91,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-"""
+
 
 
 # Password validation
@@ -139,7 +139,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # configurações de email em modo desenvolvimento:
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # configurações de email para deploy:
 """
