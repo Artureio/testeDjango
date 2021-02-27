@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'y_*(4n1h7@84numbmt0+ytcfg=uxv7fo0a(qr%r9bl$qxx^km&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -139,7 +139,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # configurações de email em modo desenvolvimento:
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+MAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # configurações de email para deploy:
 """

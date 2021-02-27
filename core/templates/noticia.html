@@ -21,7 +21,28 @@
 
 <body id="login-fundo">
 
+<header class="border-bottom">
+    <nav class="navbar navbar-dark  ">
+        <div class="container">
+            <a href="{% url 'index'  %}" class="navbar-brand m-0 p-0">
+                <img src={% static "images/logo.png" %} height="50">
+            </a>
+            <span class="mr-auto ml-3"> {{logado}}</span>
+
+            <div>
+                <a name="" id="" class="btn btn-outline-light login-botao ml-1" href='../contato'
+                   role="button">Contato</a>
+                <a name="" id="" class="btn btn-outline-light login-botao ml-1" href='../'
+                   role="button">Voltar</a>
+                <!--<a name="" id="" class="btn btn-light ml-2 login-botao" href="cadastro.php" role="button">Sign Up</a>-->
+            </div>
+        </div>
+    </nav>
+</header>
+
+
 <div class="container-fluid position-fixed  ">
+
     <div class="  d-flex justify-content-center  " id="conteudo">
         <!--Logo + Slogan lado esquerdo -->
         <div class=" d-none d-lg-block mr-5 text-light  text-center ">

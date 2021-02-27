@@ -37,11 +37,10 @@ header{
 
 
 #login-fundo{
-    background: url(/static/images/fundo.png) ,
-                #107c10
-                ;
-    background-attachment: fixed;
-    position: absolute;
+    background-image: url(/static/images/fundo.png);
+    background-color: #107c10;
+    margin: 0;
+    padding:0 ;
 }
 .caixa{
     padding: 60px 0;
