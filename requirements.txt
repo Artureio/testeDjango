@@ -18,6 +18,7 @@ django-bootstrap4==2.3.1
 django-heroku==0.3.1
 django-stdimage==5.1.1
 entrypoints==0.3
+fontawesome==5.10.1.post1
 gunicorn==20.0.4
 ipykernel==5.4.3
 ipython==7.19.0
@@ -64,6 +65,7 @@ pyrsistent==0.17.3
 python-dateutil==2.8.1
 python-utils==2.5.6
 pytz==2021.1
+pywin32==300
 pywinpty==0.5.7
 pyzmq==20.0.0
 qtconsole==5.0.1
@@ -82,3 +84,4 @@ wcwidth==0.2.5
 webencodings==0.5.1
 widgetsnbextension==3.5.1
 wrapt==1.12.1
+
