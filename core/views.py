@@ -8,6 +8,7 @@ from .forms import ContatoForm, NoticiaModelForm
 from .models import Noticia
 
 
+
 def index(request):
     if str(request.user) != 'AnonymousUser':
         logado = f'Bem vindo {request.user}'
@@ -56,6 +57,11 @@ def contato(request):
 
 def noticia(request):
     if str(request.user) != 'AnonymousUser':
+        logado = f'Bem vindo {request.user}'
+    else:
+        logado = f'Usuário não logado.'
+
+    if str(request.user) != 'AnonymousUser':
         if str(request.method) == 'POST':
             form = NoticiaModelForm(request.POST, request.FILES)
             if form.is_valid():
@@ -69,7 +75,8 @@ def noticia(request):
             form = NoticiaModelForm()
 
         context = {
-            'form': form
+            'form': form,
+            'logado': logado
         }
         return render(request, 'noticia.html', context)
     else:
