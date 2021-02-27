@@ -12,11 +12,28 @@ from .models import Noticia
 def index(request):
     if str(request.user) != 'AnonymousUser':
         logado = f'Bem vindo {request.user}'
+        status = False
     else:
-        logado = f'Usuário não logado.'
+        logado = f'Usuário não logado. Faça login para postar'
+        status = True
+
+    if str(request.method) == 'POST':
+        form = NoticiaModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'Notícia salva com sucesso!')
+            form = NoticiaModelForm()
+        else:
+            messages.error(request, 'Erro ao salvar notícia!')
+    else:
+        form = NoticiaModelForm()
+
     context = {
         'noticias': Noticia.objects.all(),
         'logado': logado,
+        'status': status,
+        'form':form
     }
     return render(request, 'index.html', context)
 
@@ -54,33 +71,6 @@ def contato(request):
     }
     return render(request, 'contato.html', context)
 
-
-def noticia(request):
-    if str(request.user) != 'AnonymousUser':
-        logado = f'Bem vindo {request.user}'
-    else:
-        logado = f'Usuário não logado.'
-
-    if str(request.user) != 'AnonymousUser':
-        if str(request.method) == 'POST':
-            form = NoticiaModelForm(request.POST, request.FILES)
-            if form.is_valid():
-                form.save()
-
-                messages.success(request, 'Notícia salva com sucesso!')
-                form = NoticiaModelForm()
-            else:
-                messages.error(request, 'Erro ao salvar notícia!')
-        else:
-            form = NoticiaModelForm()
-
-        context = {
-            'form': form,
-            'logado': logado
-        }
-        return render(request, 'noticia.html', context)
-    else:
-        return redirect(to='../painel/')
 
 def error404(request, exception):
     template = loader.get_template('404.html')
