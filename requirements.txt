@@ -7,6 +7,8 @@ autopep8==1.5.4
 backcall==0.2.0
 beautifulsoup4==4.9.3
 bleach==3.2.1
+boto3==1.17.21
+botocore==1.20.21
 cffi==1.14.4
 colorama==0.4.4
 decorator==4.4.2
@@ -17,6 +19,7 @@ Django==3.1.7
 django-bootstrap4==2.3.1
 django-heroku==0.3.1
 django-stdimage==5.1.1
+django-storages==1.11.1
 entrypoints==0.3
 fontawesome==5.10.1.post1
 gunicorn==20.0.4
@@ -27,6 +30,7 @@ ipywidgets==7.6.3
 isort==5.7.0
 jedi==0.18.0
 Jinja2==2.11.2
+jmespath==0.10.0
 jsonschema==3.2.0
 jupyter==1.0.0
 jupyter-client==6.1.11
@@ -70,6 +74,7 @@ pywinpty==0.5.7
 pyzmq==20.0.0
 qtconsole==5.0.1
 QtPy==1.9.0
+s3transfer==0.3.4
 Send2Trash==1.5.0
 six==1.15.0
 soupsieve==2.2
@@ -80,8 +85,8 @@ testpath==0.4.4
 toml==0.10.2
 tornado==6.1
 traitlets==5.0.5
+urllib3==1.26.3
 wcwidth==0.2.5
 webencodings==0.5.1
 widgetsnbextension==3.5.1
 wrapt==1.12.1
-
