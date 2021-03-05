@@ -76,11 +76,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'DjangoAwarded.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -91,10 +90,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
-
-
-
+"""
 
 
 # Password validation
@@ -114,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -153,6 +148,7 @@ EMAIL_USER_TLS =True
 EMAIL_HOST_PASSWORD = 'SUA SENHA'
 """
 
+# AWS Settings
 AWS_ACCESS_KEY_ID = 'AKIAXEGSI6W5577HCFFZ'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'awarded-artureio'
@@ -160,3 +156,6 @@ AWS_STORAGE_BUCKET_NAME = 'awarded-artureio'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# Ao deslogar do painel administrador, redireciona para a view 'index'
+LOGOUT_REDIRECT_URL = 'index'
