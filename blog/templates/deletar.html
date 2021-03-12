@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center" id="">
+            <div class="login-form">
+                <form class="" action=""  method="POST">
+                    {% csrf_token %}
+                    <h2 class="text-center">Deletar Post</h2>
+                    <h3 class="text-center">Tem certeza que deseja deletar o post {{noticia.titulo}}?</h3>
+                    <div class="form-group">
+                    </div>
+
+                    <div class="form-group ">
+                        <a href="{%'vernoticia' noticia.id %}" class="btn btn-outline-secondary btn-block font-weight-bold">Cancelar</a>
+                        <input type="submit" class="btn btn-danger btn-block font-weight-bold" value="Sim, deletar">
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

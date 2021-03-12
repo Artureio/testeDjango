@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<section class="individual">
+    <div class="container bg-white " id="corponoticia">
+        <div class="cabeçalho-noticia ">
+            <div class="row pt-2 pb-2 border-bottom">
+                <span class="badge col pl-5 text-left">Postado em: {{noticia.criado}}</span>
+                <span class="badge col pr-5 text-capitalize text-right">Autor: {{noticia.autor}}</span>
+            </div>
+            <div class="pl-4 pr-4 pt-2">
+                <h1>{{noticia.titulo}}</h1>
+            </div>
+        <img src="{{noticia.thumbnail.url}}" class="img-thumbnail rounded mx-auto d-block"
+             alt="{{noticia.titulo}}">
+        </div>
+        <p class="text-justify border-top mt-2 pt-2 pb-4 mb-4 pl-4 pr-4">{{noticia.corpo}}</p>
+
+
+    </div>
+</section>
+
+{% endblock %}}
+
+

@@ -1,0 +1,15 @@
+
+<div class="row justify-content-between mr-4 ml-4 pb-4">
+    {% if noticias.has_previous %}
+    <a class="btn btn-primary" href="{% url 'index' %}?page={{noticias.previous_page_number}}"> Anteriores</a>
+    {% else %}
+    <a class="btn btn-secondary disabled"> Anteriores</a>
+    {% endif %}
+
+    {% if noticias.has_next %}
+    <a class="btn btn-primary" href="{% url 'index' %}?page={{noticias.next_page_number}}">Próximas</a>
+    {% else %}
+    <a class="btn btn-secondary disabled">Próximas
+    </a>
+    {% endif %}
+</div>
