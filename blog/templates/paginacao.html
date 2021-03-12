@@ -1,15 +1,22 @@
-
-<div class="row justify-content-between mr-4 ml-4 pb-4">
-    {% if noticias.has_previous %}
-    <a class="btn btn-primary" href="{% url 'index' %}?page={{noticias.previous_page_number}}"> Anteriores</a>
-    {% else %}
-    <a class="btn btn-secondary disabled"> Anteriores</a>
+<div class="mb-5 pb-5 pagination justify-content-center justify-content-center">
+{% if is_paginated %}
+    {% if page_obj.has_previous %}
+        <a class="btn btn-outline-success mr-1 " href="?page=1">Primeira</a>
+        <a class="btn btn-outline-success mr-1  " href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
     {% endif %}
 
-    {% if noticias.has_next %}
-    <a class="btn btn-primary" href="{% url 'index' %}?page={{noticias.next_page_number}}">Próximas</a>
-    {% else %}
-    <a class="btn btn-secondary disabled">Próximas
-    </a>
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <a class="btn btn-success mr-1 " href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <a class="btn btn-outline-success mr-1 " href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <a class="btn btn-outline-success mr-1 " href="?page={{ page_obj.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+        <a class="btn btn-outline-success mr-1 " href="?page={{ page_obj.paginator.num_pages }}">Última</i></a>
     {% endif %}
+
+{% endif %}
 </div>
