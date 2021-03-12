@@ -19,6 +19,7 @@ Django==3.1.7
 django-bootstrap4==2.3.1
 django-crispy-forms==1.11.1
 django-heroku==0.3.1
+django-sendfile==0.3.11
 django-stdimage==5.1.1
 django-storages==1.11.1
 entrypoints==0.3
@@ -70,6 +71,7 @@ pyrsistent==0.17.3
 python-dateutil==2.8.1
 python-utils==2.5.6
 pytz==2021.1
+pywin32==300
 pywinpty==0.5.7
 pyzmq==20.0.0
 qtconsole==5.0.1
