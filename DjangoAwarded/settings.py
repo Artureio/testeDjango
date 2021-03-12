@@ -163,10 +163,9 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+
 # Ao deslogar do painel administrador, redireciona para a view 'index'
 LOGOUT_REDIRECT_URL = 'index'
-
-
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
