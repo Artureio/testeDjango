@@ -1,0 +1,53 @@
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+ <nav class="navbar-hor">
+    <ul class="navbar-nav-hor-ul">
+      <li class="nav-hor-item ml-4">
+        <a href="{% url 'index'  %}" class="nav-hor-link ml-1">
+          <img src={% static "images/logo.png" %} height="45">
+          <span class="link-text">Home</span>
+        </a>
+      </li>
+
+      <li class="nav-hor-item">
+        <a href="#" class="nav-hor-link">
+          <i class="fa fa-gamepad"></i>
+          <span class="link-text">Games</span>
+        </a>
+      </li>
+
+
+
+      <li class="nav-hor-item">
+        <a href="#" class="nav-hor-link">
+          <i class="fa fa-microchip"></i>
+          <span class="link-text">Tech</span>
+        </a>
+      </li>
+
+      <li class="nav-hor-item">
+        <a href="#" class="nav-hor-link">
+          <i class="fa fa-laugh-squint"></i>
+          <span class="link-text">Humor</span>
+        </a>
+      </li>
+
+      <li class="nav-hor-item">
+        <a href="#" class="nav-hor-link">
+          <i class="fab fa-btc"></i>
+          <span class="link-text">Crypto</span>
+        </a>
+      </li>
+
+      <li class="nav-hor-item">
+        <a href="#" class="nav-hor-link">
+          <i class="fas fa-cog"></i>
+          <span class="link-text">Ajustes</span>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+{% endblock %}
