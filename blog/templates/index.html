@@ -11,19 +11,13 @@
 
 <div class="container bg-white pr-4 pl-4" id="home">
     {% if messages %}
-       {% for message in messages %}
             <div class="alert-{{ message.tags }}">
                 {{ message }}
             </div>
-        {% endfor %}
     {% endif %}
-    {% if user.is_authenticated %}<!-- Se o usuário estiver logado, mostra o formulário pra adicionar noticia -->
+
         {% bootstrap_messages %}
-        <!--
 
-        -->
-
-    {% else %}<!-- else mostra o carrossel -->
         <section class=" bg-white pd-4 "><!--Inicio Home-->
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -53,7 +47,7 @@
         </div>
     </section>
 
-    {% endif%}
+
     <!-- Separador do Carrosel para os Cards com a informação "Últimas notícias"-->
     <div class="separador ">
         <h1 class="">Últimas notícias</h1>
@@ -68,31 +62,27 @@
         <div class="row" id="noticias" >
             {% for noticia in noticias %}
             <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                    <a href="#" id="badge1" class="badge badge-primary text-capitalize ">{{noticia.autor}}</a>
+                    <a href="#" id="badge2"class="badge badge-info ">{{noticia.criado|date:'d-m-Y'}}</a>
                 <img class="card-img-top" src="{{noticia.thumbnail.url}}" alt="teste">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title ">{{ noticia.titulo|truncatechars:40 }} </h5>
+                        <h5 class="card-title ">{{ noticia.titulo|truncatechars:20 }} </h5>
 
-                        <p class="card-text">{{noticia.corpo|truncatechars:60}}</p>
+                        <p class="card-text">{{noticia.corpo|truncatechars:20}}</p>
                         <div class="row align-items-center ">
                             <div class="col">
                             <a href="{% url 'vernoticia' noticia.pk %}" class="btn btn-sm btn-success">Leia mais</a>
 
-                            </div>
-                            <div class="col ">
-                                <span class="badge badge-primary ">{{noticia.autor}}</span>
-                                <span class="badge badge-info ">{{noticia.criado|date:'d-m-Y'}}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             {% endfor %}
-
-
-
         </div>
     </section>
+            {% include 'paginacao.html' %}
         <!-- Paginação  -->
 
 </div>
