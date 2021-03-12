@@ -13,9 +13,7 @@ import os
 from pathlib import Path
 import dj_database_url
 
-DATABASES = {
-    'default': dj_database_url.config()
-}
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,15 +33,17 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.ArtigosConfig',
+    'usuarios.apps.UsuariosConfig',
+    'bootstrap4',
+    'stdimage',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
-    'bootstrap4',
-    'stdimage',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'DjangoAwarded.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -90,7 +90,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-"""
+
 
 
 # Password validation
@@ -137,7 +137,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # configurações de email em modo desenvolvimento:
-#MAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#MAIL_BACKEND = 'django.blog.mail.backends.console.EmailBackend'
 
 # configurações de email para deploy:
 """
@@ -147,6 +147,12 @@ EMAIL_PORT= 587
 EMAIL_USER_TLS =True
 EMAIL_HOST_PASSWORD = 'SUA SENHA'
 """
+
+
+# DB HEROKU
+DATABASES = {
+    'default': dj_database_url.config()
+}
 
 # AWS Settings
 AWS_ACCESS_KEY_ID = 'AKIAXEGSI6W5577HCFFZ'
@@ -159,3 +165,10 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Ao deslogar do painel administrador, redireciona para a view 'index'
 LOGOUT_REDIRECT_URL = 'index'
+
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'

@@ -1,14 +1,10 @@
 from django.urls import path
-from .views import index, vernoticia, contato
-from core import views
+from .views import NoticiaListView, NoticiaDetalhadaView, NoticiaPostarView, NoticiaAtualizarView, NoticiaDeletarView
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('vernoticia/<int:pk>', vernoticia, name='vernoticia'),
-    path('contato/', contato, name='contato'),
-    #path('noticia/', noticia, name='noticia'),
-
+    path('', NoticiaListView.as_view(), name='index'),
+    path('post/new/', NoticiaPostarView.as_view(), name='postar'),
+    path('post/<int:pk>/', NoticiaDetalhadaView.as_view(), name='vernoticia'),
+    path('post/<int:pk>/atualizar', NoticiaAtualizarView.as_view(), name='atualizar'),
+    path('post/<int:pk>/deletar', NoticiaDeletarView.as_view(), name='deletar'),
 ]
-
-handler404 = views.error404
-handler500 = views.error500

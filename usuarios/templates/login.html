@@ -9,18 +9,18 @@
             <div class="login-form">
                 <form class="" action="" method="POST">
                     {% csrf_token %}
-                    <h2 class="text-center">Cadastre-se</h2>
+                    <h2 class="text-center">Login</h2>
                     <div class="form-group">
                         {{ form|crispy }}
                     </div>
 
                     <div class="form-group ">
-                        <input type="submit" class="btn btn-success btn-block font-weight-bold" value="Cadastrar">
+                        <input type="submit" class="btn btn-success btn-block font-weight-bold" value="Login">
                     </div>
 
                     <div class="border-top ">
                         <small class="text-muted ">
-                            Já possui uma conta? <a href="" class="ml-2"> Login</a>
+                            Não possui conta? <a href="{% url 'registrar' %}" class="ml-2"> Cadastre-se</a>
                         </small>
                     </div>
                 </form>
