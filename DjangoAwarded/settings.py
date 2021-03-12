@@ -27,7 +27,7 @@ SECRET_KEY = 'y_*(4n1h7@84numbmt0+ytcfg=uxv7fo0a(qr%r9bl$qxx^km&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://awarded-artur.herokuapp.com/','127.0.0.1/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,6 +79,7 @@ WSGI_APPLICATION = 'DjangoAwarded.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+"""
 
 DATABASES = {
     'default': {
@@ -90,6 +91,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
