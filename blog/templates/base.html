@@ -1,0 +1,83 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<html lang="pt-br">
+<!-- Arquivos de Configurações inicias -->
+<head>
+    {% bootstrap_css %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Estilo customizado -->
+    <link rel="stylesheet" type="text/css"
+          href={% static "css/style.css" %} >
+    <!--FontAwesome-->
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>Awarded - Social Gaming Network</title>
+</head>
+<!-- Corpo da Página -->
+<body id="corpo-index">
+<!-- Inicio Cabeçalho - Primeiro retangulo verde com o " Login " -->
+<header class="border-bottom">
+    <nav class="navbar navbar-expand-sm navbar-dark  ">
+        <div class="container ml-auto">
+            <div class="row ml-auto">
+                {% if user.is_authenticated %}
+                    <span class="mt-2 mr-2">{{ user.username }}</span>
+
+                    <a name="" id="" class="btn btn-outline-light login-botao ml-1" href="{% url 'postar' %}"
+                       role="button"><i class="fas fa-plus mr-2"></i>Postar</a>
+
+                <a name="" id="" class="btn btn-outline-light login-botao ml-1" href="{% url 'perfil' %}"
+                       role="button">Perfil</a>
+
+                    <a name="" id="" class="btn btn-outline-light login-botao ml-1" href="{% url 'logout' %}"
+                       role="button">Logout</a>
+
+                {% else %}
+                    <span class="mt-2 mr-2">Não logado.</span>
+                    <a name="" id="" class="btn btn-outline-light login-botao ml-1" href="{% url 'login' %}"
+                       role="button">Login</a>
+                    <a name="" id="" class="btn btn-outline-light login-botao ml-1" href="{% url 'registrar' %}"
+                       role="button">Registrar</a>
+
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+{% include 'nav-horizontal.html' %}
+
+{% block content %}   {% endblock %}
+
+
+<!--Providenciar outro footer
+
+<footer class="footer ">
+    <div class="container   text-white">
+        <div class="row  justify-content-around ">
+            <div class=" programadores">
+                <h5>Minhas redes sociais</h5>
+                <div class="footer-widget-content">
+                    <div class="footer-social ">
+                        <ul style="font-size: 1.8rem" class="nav justify-content-around">
+                            <li ><a href="https://www.facebook.com/artureio"><i class="fab fa-facebook-square text-white "></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/artureio"><i class="fab fa-linkedin text-white "></i></a></li>
+                            <li><a href="https://www.github.com/Artureio"><i class="fab fa-github-square text-white "></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+-->
+<!-- JavaScript (Opcional) -->
+{% bootstrap_javascript jquery='full' %}
+
+
+</body>
+</html>
