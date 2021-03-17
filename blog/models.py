@@ -21,7 +21,7 @@ class Noticia(Base):
         ('games','games'),
         ('tech','tech'),
         ('meme','meme'),
-        ('crypyo','crypto'),
+        ('crypto','crypto'),
         ('outros','outros')
     )
     titulo = models.CharField('Título:', max_length=100)

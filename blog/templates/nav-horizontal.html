@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 
+
  <nav class="navbar-hor">
     <ul class="navbar-nav-hor-ul">
       <li class="nav-hor-item ml-4">
@@ -12,30 +13,28 @@
       </li>
 
       <li class="nav-hor-item">
-        <a href="#" class="nav-hor-link">
+        <a href="{% url 'noticia-categoria' 'games' %} " class="nav-hor-link">
           <i class="fa fa-gamepad"></i>
           <span class="link-text">Games</span>
         </a>
       </li>
 
-
-
       <li class="nav-hor-item">
-        <a href="#" class="nav-hor-link">
+        <a href="{% url 'noticia-categoria' 'tech' %}" class="nav-hor-link">
           <i class="fa fa-microchip"></i>
           <span class="link-text">Tech</span>
         </a>
       </li>
 
       <li class="nav-hor-item">
-        <a href="#" class="nav-hor-link">
+        <a href="{% url 'noticia-categoria' 'meme' %}" class="nav-hor-link">
           <i class="fa fa-laugh-squint"></i>
-          <span class="link-text">Humor</span>
+          <span class="link-text">Meme</span>
         </a>
       </li>
 
       <li class="nav-hor-item">
-        <a href="#" class="nav-hor-link">
+        <a href="{% url 'noticia-categoria' 'crypto' %}" class="nav-hor-link">
           <i class="fab fa-btc"></i>
           <span class="link-text">Crypto</span>
         </a>

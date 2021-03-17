@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block content %}
+<div class="lateral">
+</div>
+
+
+<!-- Incio do corpo do site -->
+
+<div class="container bg-white pr-4 pl-4" id="home">
+    {% if messages %}
+    <div class="alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endif %}
+
+    {% bootstrap_messages %}
+
+
+    <div class="separador ">
+        <h1 class="">Posts de {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+    </div>
+    <!-- Paginação  -->
+
+    <!-- Inicio dos Cards de Noticias que é alimentado pelo banco de dados-->
+    <section id="cards" class="container  "><!--Linha1-->
+
+
+        <div class="row" id="noticias">
+            {% for noticia in noticias %}
+            <div class="  col-xl-4 col-lg-6 col-md-12">
+                <a href="{% url 'noticia-usuario' noticia.autor.username %}" id="badge1" class="badge badge-light text-capitalize ">{{noticia.autor}}</a>
+                <a href="#" id="badge2" class="badge badge-light ">{{noticia.criado|date:'d-m-Y'}}</a>
+                <img class="card-img-top" src="{{noticia.thumbnail.url}}" alt="teste">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title ">{{ noticia.titulo|truncatechars:20 }} </h5>
+
+                        <p class="card-text">{{noticia.corpo|truncatechars:20}}</p>
+                        <div class="row align-items-center ">
+                            <div class="col">
+                                <a href="{% url 'vernoticia' noticia.pk %}" class="btn btn-sm btn-success">Leia mais</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% include 'paginacao.html' %}
+    <!-- Paginação  -->
+
+</div>
+{% endblock %}

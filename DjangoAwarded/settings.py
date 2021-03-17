@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-import dj_database_url
-
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,14 +19,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y_*(4n1h7@84numbmt0+ytcfg=uxv7fo0a(qr%r9bl$qxx^km&'
+SECRET_KEY = os.environ.get('AWARDED_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-SENDFILE_BACKEND = 'sendfile.backends.simple'
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -38,6 +33,7 @@ INSTALLED_APPS = [
     'usuarios.apps.UsuariosConfig',
     'bootstrap4',
     'stdimage',
+    'storages',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -92,7 +88,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -124,43 +119,40 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-#diretório onde serão salvos arquivos estáticos( css,html, images)
+# diretório onde serão salvos arquivos estáticos( css,html, images)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-#diretório onde serão salvos os arquivos upados
+# diretório onde serão salvos os arquivos upados
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # configurações de email em modo desenvolvimento:
-#MAIL_BACKEND = 'django.blog.mail.backends.console.EmailBackend'
-
-# configurações de email para deploy:
-"""
-EMAIL_HOST ='localhost'
-EMAIL_HOST_USER='no-reply@seudominio.com.br'
-EMAIL_PORT= 587
-EMAIL_USER_TLS =True
-EMAIL_HOST_PASSWORD = 'SUA SENHA'
-"""
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
 
 # DB HEROKU
-DATABASES = {
-    'default': dj_database_url.config()
-}
-
+#DATABASES = {
+#    'default': dj_database_url.config('')
+#}
 # AWS Settings
-AWS_ACCESS_KEY_ID = 'AKIAXEGSI6W5577HCFFZ'
-AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWARDED_AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWARDED_AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'awarded-artureio'
 
+# storages settings
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
+
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 

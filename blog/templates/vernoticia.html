@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
 {% load static %}
 {% block content %}
 <section class="individual">
@@ -17,13 +16,13 @@
                            class="btn btn-outline-danger font-weight-bold ">Deletar</a>
                     </div>
             {% endif %}
-            <div class="pl-4 pr-4 pt-2 ">
+            <div class="page-header ">
                 <h1 class="">{{noticia.titulo}}</h1>
             </div>
         <img src="{{noticia.thumbnail.url}}" class="img-thumbnail rounded mx-auto d-block"
              alt="{{noticia.titulo}}">
         </div>
-        <p class="text-justify teste border-top mt-2 pt-2 pb-4 mb-4 pl-4 pr-4">{{noticia.corpo}}</p>
+        <p class="text-justify  ">{{noticia.corpo|linebreaks}}</p>
 
 
     </div>
