@@ -26,20 +26,20 @@
                 {% if user.is_authenticated %}
                     <span class="mt-2 mr-2">{{ user.username }}</span>
 
-                    <a name="" id="" class="btn btn-outline-light login-botao ml-1" href="{% url 'postar' %}"
+                    <a  class="btn btn-outline-light login-botao ml-1" href="{% url 'postar' %}"
                        role="button"><i class="fas fa-plus mr-2"></i>Postar</a>
 
-                <a name="" id="" class="btn btn-outline-light login-botao ml-1" href="{% url 'perfil' %}"
+                <a  class="btn btn-outline-light login-botao ml-1" href="{% url 'perfil' %}"
                        role="button">Perfil</a>
 
-                    <a name="" id="" class="btn btn-outline-light login-botao ml-1" href="{% url 'logout' %}"
+                    <a  class="btn btn-outline-light login-botao ml-1" href="{% url 'logout' %}"
                        role="button">Logout</a>
 
                 {% else %}
                     <span class="mt-2 mr-2">Não logado.</span>
-                    <a name="" id="" class="btn btn-outline-light login-botao ml-1" href="{% url 'login' %}"
+                    <a  class="btn btn-outline-light login-botao ml-1" href="{% url 'login' %}"
                        role="button">Login</a>
-                    <a name="" id="" class="btn btn-outline-light login-botao ml-1" href="{% url 'registrar' %}"
+                    <a class="btn btn-light login-botao ml-1" href="{% url 'registrar' %}"
                        role="button">Registrar</a>
 
                 {% endif %}

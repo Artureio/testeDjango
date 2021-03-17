@@ -11,14 +11,14 @@
 
 <div class="container bg-white pr-4 pl-4" id="home">
     {% if messages %}
-            <div class="alert-{{ message.tags }}">
-                {{ message }}
-            </div>
+    <div class="alert-{{ message.tags }}">
+        {{ message }}
+    </div>
     {% endif %}
 
-        {% bootstrap_messages %}
+    {% bootstrap_messages %}
 
-        <section class=" bg-white pd-4 "><!--Inicio Home-->
+    <section class=" bg-white pd-4 "><!--Inicio Home-->
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -52,29 +52,31 @@
     <div class="separador ">
         <h1 class="">Últimas notícias</h1>
     </div>
-       <!-- Paginação  -->
+    <!-- Paginação  -->
 
     <!-- Inicio dos Cards de Noticias que é alimentado pelo banco de dados-->
     <section id="cards" class="container  "><!--Linha1-->
 
 
-
-        <div class="row" id="noticias" >
+        <div class="row" id="noticias">
             {% for noticia in noticias %}
             <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <a href="#" id="badge1" class="badge badge-primary text-capitalize ">{{noticia.autor}}</a>
-                    <a href="#" id="badge2"class="badge badge-info ">{{noticia.criado|date:'d-m-Y'}}</a>
+                <a href="{% url 'noticia-usuario' noticia.autor.username %}" id="badge1"
+                   class="badge rounded-pill bg-light text-dark text-capitalize ">{{noticia.autor}}</a>
                 <img class="card-img-top" src="{{noticia.thumbnail.url}}" alt="teste">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title ">{{ noticia.titulo|truncatechars:20 }} </h5>
 
                         <p class="card-text">{{noticia.corpo|truncatechars:20}}</p>
-                        <div class="row align-items-center ">
-                            <div class="col">
-                            <a href="{% url 'vernoticia' noticia.pk %}" class="btn btn-sm btn-success">Leia mais</a>
+                        <div class="row justify-content-between">
 
-                            </div>
+                            <a href="{% url 'vernoticia' noticia.id %}" class=" col-5 btn btn-sm btn-success">Leia
+                                mais</a>
+
+                            <a href="{% url 'noticia-categoria' noticia.categoria%}"
+                               class=" col-5 btn btn-sm btn-outline-success">{{noticia.categoria}}</a>
+
                         </div>
                     </div>
                 </div>
@@ -82,8 +84,8 @@
             {% endfor %}
         </div>
     </section>
-            {% include 'paginacao.html' %}
-        <!-- Paginação  -->
+    {% include 'paginacao.html' %}
+    <!-- Paginação  -->
 
 </div>
 {% endblock %}
