@@ -2,30 +2,34 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% load bootstrap4 %}
+
 {% block content %}
 
 <div class="container-fluid">
     <div class="row justify-content-center" id="">
-            <div class="login-form">
-                <form class="" action="" method="POST">
-                    {% csrf_token %}
-                    <h2 class="text-center">Login</h2>
-                    <div class="form-group">
-                        {{ form|crispy }}
-                    </div>
+        <div class="login-form">
+            <form class="" action="" method="POST">
+                {% csrf_token %}
+                <h2 class="text-center">Login</h2>
+                <div class="form-group">
+                    {{ form|crispy }}
+                </div>
 
-                    <div class="form-group ">
-                        <input type="submit" class="btn btn-success btn-block font-weight-bold" value="Login">
-                    </div>
+                <div class="form-group ">
+                    <input type="submit" class="btn btn-success  btn-block font-weight-bold" value="Login">
+                    <small class="text-muted ">
+                    <a href="{% url 'password_reset' %}" class=""> Esqueci a senha</a>
+                </small>
+                </div>
 
-                    <div class="border-top ">
-                        <small class="text-muted ">
-                            Não possui conta? <a href="{% url 'registrar' %}" class="ml-2"> Cadastre-se</a>
-                        </small>
-                    </div>
-                </form>
+                <div class="border-top ">
+                    <small class="text-muted ">
+                        Não possui conta? <a href="{% url 'registrar' %}" class="ml-2"> Cadastre-se!</a>
+                    </small>
+                </div>
+            </form>
 
-            </div>
+        </div>
     </div>
 </div>
 
