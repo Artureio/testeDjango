@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('AWARDED_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
-ALLOWED_HOSTS = ['awarded-artur.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 

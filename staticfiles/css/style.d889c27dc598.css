@@ -16,7 +16,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #corpo-index {
-    background-image: url(/static/images/fundo.png);
+    background-image: url("/static/images/fundo.3b470b9628d5.png");
     margin: 0;
     padding: 0;
 
@@ -54,7 +54,7 @@ header img {
 
 
 #login-fundo {
-    background-image: url(/static/images/fundo.png);
+    background-image: url("/static/images/fundo.3b470b9628d5.png");
     background-color: #107c10;
     margin: 0;
     padding: 0;
