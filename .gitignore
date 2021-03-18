@@ -10,4 +10,5 @@ media
 
 *.log
 
-staticfiles
+staticfiles/
+
