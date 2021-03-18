@@ -11,8 +11,3 @@ media
 *.log
 
 staticfiles
-<<<<<<< HEAD
-=======
-
-settings.py
->>>>>>> f4287613ab324c41981418dea866f4289954e78f
