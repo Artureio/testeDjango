@@ -34,13 +34,13 @@ class Noticia(Base):
     def __str__(self):
         return self.titulo
 
-    def save(self):
-        super().save()
-        img = Image.open(self.thumbnail.path)
-        if img.height > 600 or img.width > 600:
-            output_size = (600, 600)
-            img.thumbnail(output_size)
-            img.save(self.thumbnail.path)
+   #def save(self):
+   #    super().save()
+   #    img = Image.open(self.thumbnail.path)
+   #    if img.height > 600 or img.width > 600:
+   #        output_size = (600, 600)
+   #        img.thumbnail(output_size)
+   #        img.save(self.thumbnail.path)
 
     def get_absolute_url(self):
         return reverse('vernoticia', kwargs={'pk': self.pk})
