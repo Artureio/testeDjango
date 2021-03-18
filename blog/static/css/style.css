@@ -218,6 +218,8 @@ header img {
         height: 4rem;
         position: fixed;
         background-color: #107c10;
+        overflow-x: auto;
+        -webkit-overflow-scrolling:touch;
     }
     #corponoticia {
         width: 500px;
