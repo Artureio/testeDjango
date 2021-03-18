@@ -1,4 +1,2 @@
 # Django-Awarded
-Mini blog feito em HTML/CSS com backend feito com o framework Django
-
-obs: ainda não terminado
+Conceito de Rede Social gamer feito em HTML, CSS, Bootstrap com backend feito em Python@Django
