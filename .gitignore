@@ -11,3 +11,5 @@ media
 *.log
 
 staticfiles
+
+settings.py
